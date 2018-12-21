@@ -27,7 +27,7 @@ public class IOUtils
 		File f = new File(path);
 
 		if ( f.exists() ) {
-			f.delete();
+			//f.delete();
 		}
 		
 		return f;
