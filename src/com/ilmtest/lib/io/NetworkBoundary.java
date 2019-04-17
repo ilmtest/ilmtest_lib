@@ -40,7 +40,9 @@ public class NetworkBoundary
 		} catch (FileNotFoundException e) {
 			System.out.println("Download complete...");
 		} catch (Exception e) {
-			e.printStackTrace();
+			if ( !e.getMessage().contains("Server returned HTTP response code: 500 for URL: http://shamela.ws") ) {
+				e.printStackTrace();				
+			}
 		}
 
 		return result.toString();
