@@ -25,7 +25,15 @@ public class TextUtils
 		String result = Normalizer.normalize(input, Form.NFKD).replaceAll("\\p{M}", "");
 		
 		if (removePunctuation) {
-			result = result.replaceAll("،|,|:|\\.|«|»|؟|\"|\\...", "");
+			result = result.replaceAll(" *\\([\\d+]*\\) *", " ");
+			result = result.replaceAll(" *\\[[\\d+]*\\] *", " ");
+			result = result.replaceAll("\\*|،|<|>|;|,|:|\\.|«|»|؟|\"", "");
+			result = result.replaceAll("\\\\", "");
+			// we may not want to do the below for indexed narrations
+			result = result.replaceAll("-", "");
+			result = result.replaceAll("\\(|\\)", "");
+			result = result.replaceAll("\\[|\\]", "");
+			result = result.replaceAll("…", "");
 			result = result.replaceAll("\\s+", " ").replaceAll("\\s+", " ").trim();
 		}
 
