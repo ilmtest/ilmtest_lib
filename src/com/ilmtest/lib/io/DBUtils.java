@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jsoup.helper.StringUtil;
+import org.jsoup.internal.StringUtil;
 
 public class DBUtils
 {
@@ -181,6 +181,7 @@ public class DBUtils
 
 
 	public static PreparedStatement createInsert(Connection c, String table, List<String> columns) throws SQLException {
+		System.out.println("INSERT INTO "+table+" ("+StringUtils.join(columns,",")+")"+" VALUES "+DBUtils.generatePlaceHolders(columns));
 		return c.prepareStatement("INSERT INTO "+table+" ("+StringUtils.join(columns,",")+")"+" VALUES "+DBUtils.generatePlaceHolders(columns));
 	}
 

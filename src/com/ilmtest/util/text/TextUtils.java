@@ -34,6 +34,7 @@ public class TextUtils
 			result = result.replaceAll("\\(|\\)", "");
 			result = result.replaceAll("\\[|\\]", "");
 			result = result.replaceAll("…", "");
+			result = result.replaceAll("_", "");
 			result = result.replaceAll("\\s+", " ").replaceAll("\\s+", " ").trim();
 		}
 
